@@ -1,41 +1,67 @@
-# Práctica Formativa 1: Portafolio Personal
+Portafolio Personal
+¡Hola, soy Daniela!
+¡Bienvenidos a mi portafolio! Esta página web, creada para la Práctica Formativa, muestra quién soy, mis habilidades, proyectos, y un formulario de contacto. Empecé con HTML y CSS en la Práctica 1 y lo mejoré en la Práctica 2 con estilos avanzados y responsividad. ¡Me encanta cómo quedó!
 
-## Descripción
-Este proyecto es una página web de presentación personal desarrollada en HTML y CSS, como parte de la Práctica Formativa 1 . 
+Descripción
+Es un sitio dinámico con un fondo animado de partículas (gracias a Three.js). Usé Flexbox, unidades relativas (%, vw, vh), pseudoclases, z-index, y combinadores CSS. La página es responsiva para 4 tamaños (1080px, 768px, 480px, 375px) y las imágenes están optimizadas (<500kb).
+Estructura
+Todo súper prolijo:
+portfolio/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── scripts.js
+├── assets/
+│   └── img/
+│       ├── foto.png
+│       ├── humaya.png
+│       ├── dino.png
+│       ├── eventpass.png
+│       ├── club.png
+│       ├── swwetcandy.png
+│       ├── kapp.png
+│       ├── porfolio.png
+│       ├── calculadora.png
+│       ├── probabilidad.png
+│       └── sample.png
+├── README.md
 
-## Características
-- **HTML**:
-  - Uso de etiquetas básicas como `<head>`, `<meta>`, `<title>`, `<link>`, `<h1>`, `<p>`, `<a>`, `<img>`, `<table>`, `<form>`, `<div>`, y etiquetas semánticas como `<main>` y `<article>`.
-  - Implementación de un formulario de contacto con campos como nombre, apellido, email, teléfono, y un botón para enviar.
-- **CSS**:
-  - Usé de un archivo externo `styles.css` para la personalización de estilos.
-  - También hice uso de IDs, clases, y un diseño responsive con media queries.
-  - Personalicé los elementos como botones, tablas e imágenes.
-- **Multimedia**:
-  - Las imágenes fueron optimizadas usando herramientas de compresión como [Compress PNGs].
-- **Responsividad**:
-  - Diseñé la página para que seajuste correctamente en diferentes dispositivos (mobile, tablet y desktop).
+Características
 
-## Contenido de la Página
-1. **Acerca de Mí**:
-   Una breve introducción sobre mi experiencia y pasión por la programación.
-2. **Tecnologías**:
-   - Tabla que enumera tecnologías conocidas, por aprender, y mis hobbies.
-3. **Proyectos**:
-   - Tarjetas interactivas que presentan mis proyectos destacados con enlaces directos para visualizarlos.
-4. **Contacto**:
-   - Formulario básico para recopilar información de contacto.
+HTML: Estructura semántica (<header>, <main>, etc.), formulario, tabla de tecnologías, y tarjetas de proyectos.
+CSS: Estilos en styles.css con Flexbox, Grid (proyectos de a tres), pseudoclases (a:hover), z-index, opacidad, y media queries.
+JavaScript: Animación de partículas con Three.js y scroll suave.
+Multimedia: Imágenes comprimidas con Compress PNGs.
+Fuentes e Íconos: Montserrat (Google Fonts) y Font Awesome.
+
+Contenido
+
+Acerca de Mí: Mi pasión por programar.
+¿Qué Hago?: Habilidades en web, móvil, y backend.
+Tecnologías: 
+Conocidas: HTML, CSS, JavaScript, Python, Flask.
+Por Aprender: React, TypeScript, Next.js, Node.js, MongoDB.
+Hobbies: Familia, ciclismo.
 
 
-## Tecnologías Utilizadas
-- HTML5
-- CSS3
-- Google Fonts (Montserrat)
-- Herramientas de optimización de imágenes
+Proyectos: 9 tarjetas con enlaces a proyectos como "Sweet Candy".
+Contacto: Formulario con ícono.
+
+Tecnologías
+
+HTML5, CSS3, JavaScript
+Three.js, Font Awesome, Google Fonts
+PicResize
+
+Mejoras Futuras
+
+Conectar el formulario a Node.js/MongoDB.
+Usar React/Next.js con TypeScript.
+Agregar animaciones con GSAP.
+Mejorar accesibilidad.
 
 
-## Mejoras Futuras
-- Implementar funcionalidad al formulario de contacto utilizando JavaScript o un backend.
-- Agregar más proyectos con detalles técnicos.
-- Incorporar animaciones (quizá con alguna librería) para mejorar la interacción del usuario.
+
+¡Gracias por visitar mi portafolio! Estoy emocionada por seguir aprendiendo. 
 

@@ -1,532 +1,570 @@
-/* Estilos generales*/
+/*///// AJUSTES GENERALES /////*/
+/* Intenté que todo fuera súper limpio y organizado, ¡me encanta que sea fácil de leer! */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* El fondo con gradiente refleja mi energía, quería que fuera vibrante */
 body {
-  font-family: "Montserrat", sans-serif;
-  font-style: normal;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
   color: #333;
+  background: linear-gradient(135deg, #1e267f 0%, #f8fbf9 50%, #41c7e8 100%);
+  min-height: 100vh;
 }
 
-/* Header */
+/*///// HEADER Y NAVEGACIÓN /////*/
+/* El header fijo hace la navegación súper accesible, ¡me encanta! */
 header {
-  background-color: #54a7b4;
-  color: #fff;
-  font-weight: 600;
-  padding: 1rem 0;
-  text-align: center;
-}
-
-header nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-header nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-header nav ul li a:hover {
-  text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8),
-    0 0 0.75rem rgba(255, 255, 255, 0.5);
-  transform: scale(1.05);
-}
-
-/* Acerca de mi */
-.about-section {
-  padding: 4rem 2rem;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../imagenes/fondo3.jpg");
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 0.1rem;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.about-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  max-width: 75rem;
+  position: fixed;
+  top: 0;
   width: 100%;
-  gap: 3rem;
+  background: #505481;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem;
+  box-shadow: 0 2px 20px rgba(3, 3, 3, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.text-content {
-  flex: 1;
-  text-align: left;
-  color: #fefefe;
-  padding: 0 1rem;
-}
-
-.about-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  color: #a9a0a0;
-}
-
-.about-section .highlight {
-  font-weight: bold;
-  color: #ff6f61;
-}
-
-.photo-container {
-  flex: 0 0 auto;
+/* Usé Flexbox para la lista de navegación, es súper práctico */
+nav ul {
+  list-style: none;
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.photo-background {
+/* Pseudoclases para los enlaces, quería que fueran dinámicos */
+nav a:link, nav a:visited {
+  text-decoration: none;
+  color: rgb(255, 253, 253);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+nav a:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/*///// HERO SECTION /////*/
+main {
+  margin-top: 80px;
+}
+
+/* La hero section es mi favorita, usé Flexbox para centrar todo */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
   position: relative;
-  width: 12.5rem;
-  height: 12.5rem;
-  border-radius: 50%;
-  box-shadow: 0 0.625rem 1.25rem rgba(245, 243, 251, 0.7);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
-.photo-background:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0.375rem 1.25rem rgba(245, 243, 251, 0.7);
-}
-
-.profile-photo {
+#threejs-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1; /* z-index para que las partículas queden detrás, ¡me encanta este efecto! */
+}
+
+.hero-content {
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* El contenido encima del canvas, quería que destacara */
+}
+
+/* Combinador descendiente para estilizar párrafos */
+.text-content p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #e3f2fd;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Combinador directo para los títulos */
+.text-content > h2 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #64b5f6, #ffffff, #81c784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: start;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* Grid para alinear texto e imagen, usé unidades relativas */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* La animación de la foto es súper divertida, quería que flotara */
+.profile-image {
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 30px rgba(243, 246, 248, 0.905);
+  transition: all 0.3s ease;
+  animation: float 6s ease-in-out infinite;
 }
 
-.about-section p {
-  font-size: 1.1rem;
-  color: #e8e1d4;
-  line-height: 1.8;
-  max-width: 31.25rem;
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(3, 136, 245, 0.762);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(1.25rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-/* Tecnologías */
-#technologies {
-  padding: 2rem 1rem;
-  background-color: #131117;
-  color: #a9a0a0;
-  overflow-x: auto;
+/* El resaltado del nombre con un efecto brillante, ¡me encanta! */
+.highlight {
+  background: linear-gradient(135deg, #28a6f4, #fbff02);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: 650;
+  position: relative;
 }
 
-#technologies h2 {
-  text-align: center;
-  color: #a9a0a0;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
 }
 
-#technologies table {
-  width: 100%;
-  border-collapse: collapse;
+/*///// SECCIÓN QUÉ HAGO /////*/
+.what-i-do-section > h2 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #64b5f6, #ffffff, #81c784);
+  -webkit-background-clip: text;  
+  -webkit-text-fill-color: transparent;
+  text-align: start;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* Grid responsivo para las tarjetas, usé unidades relativas */
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 90%;
   margin: 0 auto;
-  max-width: 50rem;
-  box-shadow: 0.4375rem 0.4375rem 1.25rem rgba(38, 172, 202, 0.5);
-  table-layout: fixed;
 }
 
-#technologies th,
-#technologies td {
-  padding: 0.5rem;
-  border: 0.1875rem solid #7b7575;
+.mission-card {
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  color: white;
   text-align: center;
-  word-wrap: break-word;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.9; /* Opacidad para resaltar el texto, ¡me pareció súper elegante! */
 }
 
-/* Proyectos */
-#projects {
-  padding: 2rem 1rem;
-  background-color: #131117;
+.mission-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(100, 181, 246, 0.3);
 }
 
-#projects h2 {
-  text-align: center;
-  color: #a9a0a0;
+/* Efecto de brillo en las tarjetas, ¡me encanta cómo quedó! */
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.8s ease;
+}
+
+.mission-card:hover::before {
+  left: 100%;
+}
+
+.mission-card i {
+  font-size: 3rem;
+  color: #64b5f6;
   margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.mission-card:hover i {
+  transform: scale(1.1);
+  color: #81c784;
+}
+
+.mission-card h3 {
+  color: #e3f2fd;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.mission-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/*///// SECCIÓN TECNOLOGÍAS /////*/
+#technologies {
+  padding: 4rem 2rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#technologies > h2 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #64b5f6, #ffffff, #81c784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: start;
+}
+
+/* Personalicé la tabla con filas. Quedó súper profesional! */
+table {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 1.5rem;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+td {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: rgba(100, 181, 246, 0.05);
+}
+
+tr:nth-child(odd) {
+  background: rgba(129, 199, 132, 0.05);
+}
+
+tr:hover {
+  background: rgba(100, 181, 246, 0.15);
+}
+
+/*///// SECCIÓN PROYECTOS /////*/
+#projects {
+  padding: 4rem 2rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#projects > h2 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #64b5f6, #ffffff, #81c784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: start;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
-  gap: 1.5rem;
-  max-width: 75rem;
-  margin: 0 auto;
+  
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  max-width: 100%;
 }
 
 .project-card {
-  background-color: #fff;
-  border: 0.0625rem solid #ddd;
-  border-radius: 0.625rem;
-  text-align: center;
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  min-height: 25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0.9; 
 }
 
 .project-card:hover {
-  transform: translateY(-0.3125rem);
-  box-shadow: 0 0.75rem 1rem rgba(203, 196, 196, 0.9);
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(100, 181, 246, 0.3);
 }
 
 .project-card img {
   width: 100%;
-  height: 14.375rem;
-  object-fit: contain;
-  border-radius: 0.625rem;
-  margin-bottom: 0.3rem;
+  height: 200px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit:fill;
 }
 
 .project-card h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin: 0.3rem 0;
-}
-
-.project-card p {
-  font-size: 1rem;
-  color: #555;
-  margin: 0.3rem 0;
-  flex-grow: 1;
-}
-
-.project-card a {
-  display: inline-block;
-  color: #54a7b4;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3125rem;
-  transition: background-color 0.3s;
-  margin-top: 0.3rem;
-}
-
-.project-card a:hover {
-  background-color: rgba(84, 167, 180, 0.1);
-}
-
-/* Contacto */
-#contact {
-  padding: 1.5rem;
-  background-color: #131117;
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-#contact h2 {
-  text-align: center;
-  color: #a9a0a0;
-  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem 0.5rem;
+  color: #5b5d5f;
   font-size: 1.3rem;
 }
 
-form {
-  width: 100%;
-  max-width: 50rem;
+.project-card p {
+  padding: 0 1.5rem;
+  color: #5b5d5f;
+  margin-bottom: 1rem;
+}
+
+/* Pseudoclases para los enlaces de proyectos. M pareció súper dinámico! */
+.project-card a:link, .project-card a:visited {
+  display: inline-block;
+  margin: 0 1.5rem 1.5rem;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #64b5f6, #81c784);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
+.project-card a:hover {
+  box-shadow: 0 10px 25px rgba(100, 181, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+.project-card a:active {
+  transform: translateY(0);
+}
+
+/*///// SECCIÓN CONTACTO /////*/
+#contact {
+  padding: 4rem 2rem;
+  max-width: 90%;
   margin: 0 auto;
-  padding: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 0.5rem;
-  box-sizing: border-box;
 }
 
-.form-group {
-  margin-bottom: 1.2rem;
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
+#contact > h2 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #64b5f6, #ffffff, #81c784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: start;
 }
 
+form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Combinador para estilizar etiquetas dentro del formulario */
 form label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #fff;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-  opacity: 0.9;
+  font-weight: 600;
+  color:   #584f4f;
 }
 
 form input {
   width: 100%;
-  padding: 0.8rem;
-  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.3125rem;
-  box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  background: rgba(255, 255, 255, 0.1);
+  color: #333;
+}
+
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 form input:focus {
   outline: none;
-  border-color: #54a7b4;
+  border-color: #64b5f6;
+  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.3);
 }
 
+/* El botón con ícono me gustó */
 form button {
-  width: auto;
-  padding: 0.6rem 1.5rem;
-
-  background-color: #54a7b4;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #64b5f6, #81c784);
+  color: white;
   border: none;
-  border-radius: 0.3125rem;
-  transition: background-color 0.3s;
-  margin: 1rem auto 0;
-  display: block;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 form button:hover {
-  background-color: #506f74;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(100, 181, 246, 0.4);
 }
 
-/* Footer */
+form button:active {
+  transform: translateY(0);
+}
+
+/*///// FOOTER /////*/
 footer {
+  background: #505481;
+  color: white;
   text-align: center;
-  padding: 1rem;
-  background-color: #54a7b4;
-  color: #fff;
+  padding: 2rem;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Diseño responsivo */
+/*///// RESPONSIVIDAD /////*/
+/* Tablet horizontal */
+@media (max-width: 1080px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 
-@media (max-width: 48rem) {
-  /* Header */
-  header nav ul {
+  .missions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .text-content > h2, .what-i-do-section > h2, #technologies > h2, #projects > h2, #contact > h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Tablet vertical */
+@media (max-width: 768px) {
+  .missions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
     gap: 1rem;
   }
 
-  header nav ul li a {
-    font-size: 0.95rem;
-  }
-
-  /* Acerca de mi */
-  .about-section {
-    padding: 2rem 1rem;
-    min-height: 50vh;
-  }
-
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .text-content {
-    text-align: center;
-    padding: 0;
-  }
-
-  .about-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .about-section p {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-
-  .photo-background {
-    width: 10rem;
-    height: 10rem;
-  }
-
-  /* Technologías*/
-  #technologies {
-    padding: 1.5rem 0.5rem;
-  }
-
-  #technologies table {
-    max-width: 100%;
+  nav a {
+    padding: 0.3rem 0.8rem;
     font-size: 0.9rem;
   }
 
-  #technologies th,
-  #technologies td {
-    padding: 0.4rem;
-    border: 0.125rem solid #7b7575;
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 
-  /* Projectos */
-  #projects {
-    padding: 1.5rem 0.5rem;
-  }
-
-  .project-card {
-    min-height: 21.875rem;
-  }
-
-  .project-card img {
-    height: 12.5rem;
-  }
-
-  /* Contacto */
-  #contact {
-    padding: 1.2rem;
-  }
-
-  form {
-    max-width: 30rem;
-    padding: 1.2rem;
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
-  }
-
-  form label {
-    font-size: 0.95rem;
-  }
-
-  form input {
-    padding: 0.7rem;
-    font-size: 0.95rem;
-  }
-
-  form button {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.95rem;
-    margin: 1rem auto 0;
+  .text-content p {
+    font-size: 1.1rem;
   }
 }
 
-/* Dispositivos pequeños */
-@media (max-width: 30rem) {
-  /* Header */
-  header nav ul {
-    gap: 0.8rem;
-    flex-wrap: wrap;
+/* Mobile 1 */
+@media (max-width: 480px) {
+  .hero-content, #technologies, #projects, #contact {
+    max-width: 95%;
   }
 
-  header nav ul li a {
-    font-size: 0.85rem;
+  .text-content > h2, .what-i-do-section > h2, #technologies > h2, #projects > h2, #contact > h2 {
+    font-size: 2rem;
   }
 
-  /* Acerca de mi */
-  .about-section {
-    min-height: 40vh;
-    padding: 1.5rem 0.5rem;
+  .profile-image {
+    width: 200px;
+    height: 200px;
   }
 
-  .about-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .about-section p {
-    font-size: 0.9rem;
-  }
-
-  .photo-background {
-    width: 8.75rem;
-    height: 8.75rem;
-  }
-
-  /* Technologías*/
-  #technologies h2 {
-    font-size: 1.3rem;
-  }
-
-  #technologies table {
-    max-width: 90%;
-    font-size: 0.85rem;
-  }
-
-  #technologies th,
-  #technologies td {
-    padding: 0.3rem;
-  }
-
-  /* Projectos */
-  #projects h2 {
-    font-size: 1.3rem;
-  }
-
-  .project-card {
-    min-height: 18.75rem;
-  }
-
-  .project-card img {
-    height: 11.25rem;
-  }
-
-  .project-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .project-card p {
-    font-size: 0.9rem;
-  }
-
-  /* Contacto */
-  #contact {
-    padding: 1rem;
+  .mission-card, .project-card {
+    padding: 1.5rem;
   }
 
   form {
-    max-width: 25rem;
-    padding: 1rem;
+    padding: 2rem;
   }
 
-  .form-group {
-    margin-bottom: 0.9rem;
+  /* Fuentes relativas para mobile, ¡me pareció importante! */
+  body {
+    font-size: 3.5vw;
+  }
+}
+
+/* Mobile 2 */
+@media (max-width: 375px) {
+  .text-content > h2, .what-i-do-section > h2, #technologies > h2, #projects > h2, #contact > h2 {
+    font-size: 1.8rem;
   }
 
-  form label {
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+  }
+
+  form input, form button {
     font-size: 0.9rem;
-    margin-bottom: 0.4rem;
-  }
-
-  form input {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-  }
-
-  form button {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
-    margin: 0.8rem auto 0;
-  }
-
-  /* Footer */
-  footer {
-    font-size: 0.9rem;
-    padding: 0.8rem;
   }
 }

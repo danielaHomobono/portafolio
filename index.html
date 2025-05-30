@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <!-- En esta sección hacemos la configuración básica del documento-->
+    <!-- Aquí configuré lo básico del documento, quería que fuera súper claro y responsive -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio de Daniela Homobono</title>
+    <!-- Me encanta usar Font Awesome para íconos, le da un toque moderno -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Elegí Montserrat porque me parece elegante y versátil -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- Three.js para las partículas, ¡me fascinó cómo quedó el fondo dinámico! -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Aquí enlazo mi CSS, intenté que todo estuviera organizado -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <!-- El header con la navegación fija, quería que fuera súper accesible -->
     <header>
       <nav>
         <ul>
           <li><a href="#about-me">Acerca de Mí</a></li>
+          <li><a href="#what-i-do">¿Qué Hago?</a></li>
           <li><a href="#technologies">Tecnologías</a></li>
           <li><a href="#projects">Proyectos</a></li>
           <li><a href="#contact">Contacto</a></li>
@@ -26,37 +37,73 @@
     </header>
 
     <main>
-      <!-- Sección Acerca de Mí -->
-      <!-- Me gustaría agregar algún efecto en palabras clave como transiciones o cambio de colores -->
-      <section id="about-me" class="about-section">
-        <div class="about-container">
-          <div class="text-content">
-            <h2>Acerca de Mí</h2>
-            <!-- Texto introductorio sobre mi experiencia y entusiasmo por el desarrollo web -->
-            <p>
-              Hola, soy <span class="highlight">Daniela Homobono</span>, una
-              desarrolladora de software de Río Tercero, Córdoba. Soy apasionada
-              por la innovación, siempre explorando nuevas tecnologías y
-              encontrando formas creativas de resolver problemas. Aprender es mi
-              motor y crear, mi mayor satisfacción.
-            </p>
-          </div>
-          <div class="photo-container">
-            <!-- Imagen representativa, pendiente mejorar el diseño -->
-            <div class="photo-background">
+      <!-- La sección hero es mi favorita, quise combinar mi presentación con un fondo animado -->
+      <section id="about-me" class="hero-section">
+        <canvas id="threejs-canvas"></canvas>
+        <div class="hero-content">
+          <div class="about-container">
+            <div class="text-content">
+              <h2>Hola!</h2>
+              <p>
+                Soy <span class="highlight">Daniela Homobono</span>, una
+                desarrolladora de software desde Río Tercero, Córdoba, con un
+                amor inmenso por la programación. Vivo y respiro código. Es
+                mi pasión y mi obsesión! siempre buscando esa solución 
+                que hace que todo encaje. Mi meta es clara: convertirme en una
+                profesional destacada en el mundo del desarrollo, y no hay
+                desafío que me detenga. Cuando algo no funciona, no me rindo;
+                investigo, pruebo y aprendo hasta dar con la respuesta. Crear
+                soluciones innovadoras que impactan es lo que me impulsa cada
+                día.
+              </p>
+            </div>
+            <div class="profile-image-container">
+              <!-- La animación de la foto me pareció súper divertida de hacer aunque la foto en si no me convence -->
               <img
-                src="imagenes/foto.png"
-                alt="Foto de Daniela Homobono"
-                class="profile-photo"
+                src="assets/img/foto3.jpeg"
+                alt="Daniela Homobono"
+                class="profile-image"
               />
+            </div>
+          </div>
+
+          <!-- Aquí quise mostrar lo que hago de manera clara  -->
+          <div id="what-i-do" class="what-i-do-section">
+            <h2>¿Qué Hago?</h2>
+            <div class="missions-grid">
+              <div class="mission-card">
+                <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                <h3>Crear Experiencias Web</h3>
+                <p>
+                  Diseño y desarrollo sitios web responsivos, modernos y
+                  accesibles usando HTML, CSS y JavaScript, transformando ideas
+                  en experiencias digitales únicas.
+                </p>
+              </div>
+              <div class="mission-card">
+                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                <h3>Conectar a Través de Apps</h3>
+                <p>
+                  Creo aplicaciones móviles intuitivas con Kotlin y bases de
+                  datos como SQLite, llevando soluciones prácticas a la palma de
+                  la mano.
+                </p>
+              </div>
+              <div class="mission-card">
+                <i class="fas fa-server" aria-hidden="true"></i>
+                <h3>Potenciar el Backend</h3>
+                <p>
+                  Construyo APIs robustas y escalables con Python, Flask y
+                  Node.js, asegurando que los sistemas funcionen sin problemas
+                  detrás de escena.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Sección Tecnologías -->
-      <!-- Me gustaría agregar íconos para cada tecnología para hacerlo más visual -->
-
+      <!-- La tabla de tecnologías me pareció una forma ordenada de mostrar mis habilidades -->
       <section id="technologies">
         <h2>Tecnologías</h2>
         <table>
@@ -81,37 +128,37 @@
           </tbody>
         </table>
       </section>
-      <!-- Sección Proyectos -->
-      <!-- Aquí podría ajustar el diseño para que las tarjetas sean más interactivas -->
+
+      <!-- Los proyectos son mi orgullo, quise que cada tarjeta tuviera personalidad -->
       <section id="projects">
         <h2>Proyectos</h2>
         <div class="projects-grid">
           <div class="project-card">
-            <img src="imagenes/humaya.png" alt="Proyecto 1" />
-            <h3>Sweet candy</h3>
-            <p>Tienda de dulces elaborado con html, css y JavaScript</p>
+            <img src="assets/img/humaya.png" alt="Sweet Candy" />
+            <h3>Sweet Candy</h3>
+            <p>Tienda de dulces elaborado con HTML, CSS y JavaScript</p>
             <a href="https://danielahomobono.github.io/humaya/" target="_blank"
               >Ver más</a
             >
           </div>
           <div class="project-card">
-            <img src="imagenes/dino.png" alt="Proyecto 2" />
+            <img src="assets/img/dino.png" alt="Dino JS" />
             <h3>Dino JS</h3>
-            <p>Juego de dino sin internet creado con JS</p>
+            <p>Juego de dinosaurio sin internet creado con JS</p>
             <a href="https://danielahomobono.github.io/dinoJS/" target="_blank"
               >Ver más</a
             >
           </div>
           <div class="project-card">
-            <img src="imagenes/eventpass.png" alt="Proyecto 3" />
+            <img src="assets/img/eventpass.png" alt="EventPass" />
             <h3>Sitio de venta de entradas a eventos</h3>
-            <p>Creando con React, Node y MongoDB</p>
+            <p>Creado con React, Node y MongoDB</p>
             <a href="https://eventpass.vercel.app/" target="_blank">Ver más</a>
           </div>
           <div class="project-card">
-            <img src="imagenes/club.png" alt="Proyecto 4" />
-            <h3>Gestion de Club Deportivo</h3>
-            <p>Desarrollado con c#</p>
+            <img src="assets/img/club.png" alt="Gestión de Club Deportivo" />
+            <h3>Gestión de Club Deportivo</h3>
+            <p>Desarrollado con C#</p>
             <a
               href="https://github.com/danielaHomobono/SistemaClubDeportivo2.git"
               target="_blank"
@@ -119,27 +166,17 @@
             >
           </div>
           <div class="project-card">
-            <img src="imagenes/peliculas.png" alt="Proyecto 5" />
-            <h3>Sitio de Películas</h3>
-            <p>Sitio creado con React</p>
-            <a
-              href="https://danielahomobono.github.io/context-app/"
-              target="_blank"
-              >Ver más</a
-            >
-          </div>
-          <div class="project-card">
-            <img src="imagenes/swwetcandy.png" alt="Proyecto 6" />
+            <img src="assets/img/swwetcandy.png" alt="Swwet Candy" />
             <h3>Swwet Candy</h3>
-            <p>Proyecto desarrollado con html, css y JS</p>
+            <p>Proyecto desarrollado con HTML, CSS y JS</p>
             <a href="https://lucky-palmier-6eb4a3.netlify.app/" target="_blank"
               >Ver más</a
             >
           </div>
           <div class="project-card">
-            <img src="imagenes/kapp.png" alt="Proyecto 7" />
+            <img src="assets/img/kapp.png" alt="Aplicación Móvil" />
             <h3>Aplicación Móvil</h3>
-            <p>Proyecto desarrollado con Kotlin y SQlite</p>
+            <p>Proyecto desarrollado con Kotlin y SQLite</p>
             <a
               href="https://github.com/danielaHomobono/AndroidClubDeportivo"
               target="_blank"
@@ -147,11 +184,34 @@
             >
           </div>
           <div class="project-card">
-            <img src="imagenes/calculadora.png" alt="Proyecto 8" />
+            <img src="assets/img/porfolio.png" alt="Portfolio interactivo" />
+            <h3>
+              Avatar con React Three Fiber.
+            </h3>
+            <p>Sitio creado con React y React three Fiber.</p>
+            <a href="https://r3f-vite-starter-sandy.vercel.app/" target="_blank"
+              >Ver más</a
+            >
+          </div>
+          <div class="project-card">
+            <img src="assets/img/calculadora.png" alt="Calculadora" />
             <h3>Calculadora</h3>
-            <p>Desarrollada con html, css y JS</p>
+            <p>Desarrollada con HTML, CSS y JS</p>
             <a
               href="https://danielahomobono.github.io/calculadora/"
+              target="_blank"
+              >Ver más</a
+            >
+          </div>
+          <div class="project-card">
+            <img
+              src="assets/img/probabilidad.png"
+              alt="Calculadora de Probabilidad"
+            />
+            <h3>Calculadora de Probabilidad</h3>
+            <p>Desarrollada con Python</p>
+            <a
+              href="https://github.com/danielaHomobono/Simulacion3.git"
               target="_blank"
               >Ver más</a
             >
@@ -159,8 +219,7 @@
         </div>
       </section>
 
-      <!-- Sección Contacto -->
-      <!-- Debería añadir validaciones personalizadas para mejorarlo -->
+      <!-- El formulario de contacto lo hice simple pero funcional, me encantaría agregar validaciones más adelante -->
       <section id="contact">
         <h2>Contacto</h2>
         <form action="#" method="post" aria-label="Formulario de contacto">
@@ -176,14 +235,21 @@
           <label for="phone">Teléfono:</label>
           <input type="tel" id="phone" name="phone" required />
 
-          <button type="submit">Enviar</button>
+          <!-- Agregué un ícono al botón -->
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Enviar
+          </button>
         </form>
       </section>
     </main>
 
+    <!-- El footer lo mantuve minimalista, pero me gustaría agregar íconos de redes sociales en el futuro -->
     <footer>
-      <!-- Pie de página con derechos reservados -->
-      <p>&copy; 2025 Daniela Homobono. Todos los derechos reservados.</p>
+      <p>© 2025 Daniela Homobono. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Aquí cargo mi JavaScript.  Fue un desafío enorme aprender Three.js! -->
+    <script src="js/scripts.js"></script>
+    <script src="js/form.js"></script>
   </body>
 </html>
